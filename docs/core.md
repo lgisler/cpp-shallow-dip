@@ -26,7 +26,7 @@ applied.
 RAII is the idiom of having constructors acquire resources and destructors release them. Meaning
 that resources (allocated heap memory, thread of execution, open socket, open file, locked mutex,
 disk space, database connection - anything that exists in limited supply) are bound to the lifetime
-of an object. Ensuring that resource availability is a \[class invariant\]\[class-invariant\]
+of an object. Ensuring that resource availability is a [class invariant][class-invariant]
 
 # TODO<a name="todo"></a>
 
