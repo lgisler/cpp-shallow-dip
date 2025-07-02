@@ -1,5 +1,7 @@
 # cpp-shallow-dip<a name="cpp-shallow-dip"></a>
 
+https://github.com/lgisler/cpp-shallow-dip
+
 ## Table of contents<a name="table-of-contents"></a>
 
 <!-- mdformat-toc start --slug=github --maxlevel=6 --minlevel=1 -->
@@ -9,6 +11,7 @@
   - [Format](#format)
   - [Language concepts](#language-concepts)
     - [Resource acquisition is initialization](#resource-acquisition-is-initialization)
+  - [Core software engineering](#core-software-engineering)
     - [Class & object invariants](#class--object-invariants)
   - [TODO](#todo)
 
@@ -30,7 +33,9 @@ applied.
 RAII is the idiom of having constructors acquire resources and destructors release them. Meaning
 that resources (allocated heap memory, thread of execution, open socket, open file, locked mutex,
 disk space, database connection - anything that exists in limited supply) are bound to the lifetime
-of an object. Ensuring that resource availability is a [class invariant][class--object-invariants]
+of an object. Ensuring that resource availability is a [class invariant](#class--object-invariants)
+
+## Core software engineering<a name="core-software-engineering"></a>
 
 ### Class & object invariants<a name="class--object-invariants"></a>
 
