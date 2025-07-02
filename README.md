@@ -8,10 +8,21 @@ Collection of commonly encountered C++ things
 
 ## Setup Instructions
 
-Make sure [pyenv](https://github.com/pyenv/pyenv) is installed and initialized
-([installation guide](https://github.com/pyenv/pyenv#installation)).
+```sh
+# Install Node Version Manager nvm-sh/nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+
+# Install node 20
+nvm install 20
+
+# Use node 20 in the current shell
+nvm use 20
+```
 
 ```sh
+# Install pyenv
+curl -fsSL https://pyenv.run | bash
+
 # Install Python 3.10 (or later) using pyenv
 pyenv install 3.10.14
 
