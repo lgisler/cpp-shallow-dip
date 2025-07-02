@@ -1,0 +1,12 @@
+repos:
+  - repo: https://github.com/executablebooks/mdformat
+    rev: 0.7.22
+    hooks:
+      - id: mdformat
+        args: [ --number, --wrap, "100" ]
+        additional_dependencies:
+          - mdformat-toc
+          - mdformat-tables
+          - mdformat-footnote
+          - mdformat-frontmatter
+        language_version: python3.10
