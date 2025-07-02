@@ -15,7 +15,7 @@ Make sure [pyenv](https://github.com/pyenv/pyenv) is installed and initialized
 # Install Python 3.10 (or later) using pyenv
 pyenv install 3.10.14
 
-# Set Python version for just the current shell (not global)
+# Set Python version for just the current shell
 pyenv shell 3.10.14
 
 # (Optional, but recommended for isolation)
