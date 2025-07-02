@@ -17,11 +17,6 @@ repos:
           - mdformat-toc
           - mdformat-tables
         language_version: python3.10
-  -   repo: https://github.com/codespell-project/codespell
-      rev: v2.4.1
-      hooks:
-        - id: codespell
-          files: \.(md)$
   - repo: https://github.com/streetsidesoftware/cspell-cli
     rev: v9.0.1
     hooks:
@@ -38,8 +33,8 @@ repos:
         always_run: true
   - repo: local
     hooks:
-      - id: sort-cspell-words
-        name: Sort cspell words in YAML
+      - id: sort-and-remove-duplicated-cspell-words
+        name: Sort and remove duplicated cspell words
         entry: python3 ./pre-commit-hooks/sort-cspell-words.py
         language: system
         files: ^\.cspell\.yaml$
