@@ -3,7 +3,7 @@ repos:
     rev: 0.7.22
     hooks:
       - id: mdformat
-        args: [ --number, --wrap, "100" ]
+        args: [--number, --wrap, "100"]
         additional_dependencies:
           - mdformat-beautysh
           - mdformat-black
@@ -31,10 +31,36 @@ repos:
           - .git/COMMIT_EDITMSG
         stages: [commit-msg]
         always_run: true
-  - repo: local
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
     hooks:
-      - id: sort-and-remove-duplicated-cspell-words
-        name: Sort and remove duplicated cspell words
-        entry: python3 ./pre-commit-hooks/sort-cspell-words.py
-        language: system
-        files: ^\.cspell\.yaml$
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+      - id: check-merge-conflict
+      - id: check-json
+      - id: debug-statements
+      - id: name-tests-test
+      - id: forbid-new-submodules
+
+  - repo: https://github.com/psf/black
+    rev: 25.1.0
+    hooks:
+      - id: black
+        language_version: python3
+
+  - repo: https://github.com/PyCQA/flake8
+    rev: 7.3.0
+    hooks:
+      - id: flake8
+
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v4.0.0-alpha.8
+    hooks:
+      - id: prettier
+
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.5.0
+    hooks:
+      - id: detect-secrets
