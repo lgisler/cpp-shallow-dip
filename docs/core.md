@@ -48,7 +48,7 @@ RAII can be summarized as follows:
   - the destructor releases the resource and never throws exceptions;
 - always use the resource via an instance of a RAII-class that either
   - has automatic storage duration or temporary lifetime itself, or
-  - has lifetime that is bounded by the lifetime of an automatic or temporary object. alppa
+  - has lifetime that is bounded by the lifetime of an automatic or temporary object.
 
 ### Stack vs heap memory<a name="stack-vs-heap-memory"></a>
 
