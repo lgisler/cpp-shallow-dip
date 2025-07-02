@@ -1,7 +1,6 @@
 version: '0.2'
 language: en
 words:
-- alppa
 - beautysh
 - chrono
 - codespell
@@ -20,9 +19,11 @@ words:
 - Liskov
 - lldb
 - lvalue
+- maxlevel
 - mdformat
 - Metaprogramming
 - Microbenchmarking
+- minlevel
 - noexcept
 - NRVO
 - nullptr
