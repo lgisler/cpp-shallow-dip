@@ -11,6 +11,7 @@ https://github.com/lgisler/cpp-shallow-dip
   - [Format](#format)
   - [Language concepts](#language-concepts)
     - [Resource acquisition is initialization](#resource-acquisition-is-initialization)
+    - [Stack vs heap memory](#stack-vs-heap-memory)
   - [Core software engineering](#core-software-engineering)
     - [Class & object invariants](#class--object-invariants)
   - [TODO](#todo)
@@ -26,14 +27,30 @@ and _idioms_ commonly encountered in C++. Using mainly
 sections and topics are ordered from most important to least important but no strict ordering is
 applied.
 
+The target audience for this document is mid-level C++ developers looking at learning,
+self-improvement, and progressing towards becoming a senior C++ developer.
+
 ## Language concepts<a name="language-concepts"></a>
 
 ### Resource acquisition is initialization<a name="resource-acquisition-is-initialization"></a>
 
 RAII is the idiom of having constructors acquire resources and destructors release them. Meaning
-that resources (allocated heap memory, thread of execution, open socket, open file, locked mutex,
-disk space, database connection - anything that exists in limited supply) are bound to the lifetime
-of an object. Ensuring that resource availability is a [class invariant](#class--object-invariants)
+that resources ([allocated heap memory](#stack-vs-heap-memory), thread of execution, open socket,
+open file, locked mutex, disk space, database connection - anything that exists in limited supply)
+are bound to the lifetime of an object. Ensuring that resource availability is a
+[class invariant](#class--object-invariants)
+
+RAII can be summarized as follows:
+
+- encapsulate each resource into a class, where
+  - the constructor acquires the resource and establishes all class invariants or throws an
+    exceptions if that cannot be done,
+  - the destructor releases the resource and never throws exceptions;
+- always use the resource via an instance of a RAII-class that either
+  - has automatic storage duration or temporary lifetime itself, or
+  - has lifetime that is bounded by the lifetime of an automatic or temporary object. alppa
+
+### Stack vs heap memory<a name="stack-vs-heap-memory"></a>
 
 ## Core software engineering<a name="core-software-engineering"></a>
 

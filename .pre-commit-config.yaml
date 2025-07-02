@@ -17,3 +17,9 @@ repos:
           - mdformat-toc
           - mdformat-tables
         language_version: python3.10
+  -   repo: https://github.com/codespell-project/codespell
+      rev: v2.4.1
+      hooks:
+        - id: codespell
+          files: \.(md)$
+          args: ["--write-changes"]
