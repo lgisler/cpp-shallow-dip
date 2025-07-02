@@ -17,6 +17,7 @@ repos:
           - mdformat-toc
           - mdformat-tables
         language_version: python3.10
+
   - repo: https://github.com/streetsidesoftware/cspell-cli
     rev: v9.0.1
     hooks:
@@ -31,6 +32,15 @@ repos:
           - .git/COMMIT_EDITMSG
         stages: [commit-msg]
         always_run: true
+
+  - repo: local
+    hooks:
+      - id: sort-and-remove-duplicated-cspell-words
+        name: Sort and remove duplicated cspell words
+        entry: python3 ./pre-commit-hooks/sort-cspell-words.py
+        language: system
+        files: ^\.cspell\.yaml$
+
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
     hooks:
@@ -59,6 +69,7 @@ repos:
     rev: v4.0.0-alpha.8
     hooks:
       - id: prettier
+        exclude: '^\.cspell.yaml$'
 
   - repo: https://github.com/Yelp/detect-secrets
     rev: v1.5.0
