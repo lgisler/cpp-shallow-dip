@@ -1,0 +1,49 @@
+# Table of contents<a name="table-of-contents"></a>
+
+<!-- mdformat-toc start --slug=github --maxlevel=6 --minlevel=1 -->
+
+- [Table of contents](#table-of-contents)
+- [Format](#format)
+- [Language concepts](#language-concepts)
+  - [Resource acquisition is initialization](#resource-acquisition-is-initialization)
+- [TODO](#todo)
+
+<!-- mdformat-toc end -->
+
+# Format<a name="format"></a>
+
+This document is a collection of _keywords_, _concepts_, _axioms_, _acronyms_, _design patterns_,
+and _idioms_ commonly encountered in C++. Using mainly
+[cppreference](https://en.cppreference.com/w/) and
+[CppCoreGuidelines](https://github.com/isocpp/CppCoreGuidelines/) as references. In general the
+sections and topics are ordered from most important to least important but no strict ordering is
+applied.
+
+# Language concepts<a name="language-concepts"></a>
+
+## Resource acquisition is initialization<a name="resource-acquisition-is-initialization"></a>
+
+RAII is the idiom of having constructors acquire resources and destructors release them. Meaning
+that resources (allocated heap memory, thread of execution, open socket, open file, locked mutex,
+disk space, database connection - anything that exists in limited supply) are bound to the lifetime
+of an object. Ensuring that resource availability is a \[class invariant\]\[class-invariant\]
+
+# TODO<a name="todo"></a>
+
+| #   | Category                        | Key Items & Explanations                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --- | ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | Language Core Concepts          | **RAII** (Resource Acquisition Is Initialization); **Object Lifetime & Ownership**; Constructors/Destructors; Copy/Move Semantics; Slicing; Stack vs Heap; Smart Pointers (`unique_ptr`, `shared_ptr`, `weak_ptr`); Manual memory management (`new`, `delete`); OOP (Encapsulation, Inheritance, Polymorphism); Abstraction; Abstract Classes.                                                                                                                  |
+| 2   | Core Software Engineering       | **Class & Object Invariants** (Conditions that must always hold true for an object instance); **Preconditions/Postconditions** (for functions/methods); **Assertions** (`assert`); **Design by Contract (DbC)** (documenting & enforcing invariants, pre/postconditions); **Exception Safety Guarantees**; Immutability; Defensive Programming; Testing.                                                                                                        |
+| 3   | Key Language Keywords           | `class`, `struct`, `namespace`, `public`, `protected`, `private`, `virtual`, `override`, `final`, `const`, `constexpr`, `consteval`, `constinit`, `template`, `typename`, `inline`, `static`, `mutable`, `this`, `decltype`, `auto`, `using`, `enum`, `enum class`, `explicit`, `friend`, `operator`, `throw`, `try`, `catch`, `noexcept`, `new`, `delete`, `nullptr`, `default`, `delete`, `if constexpr`, `co_await`, `co_return`, `co_yield`, `thread_local` |
+| 4   | Templates & Generic Programming | Templates (classes/functions); Template Specialization / Partial Specialization; **SFINAE** (Substitution Failure Is Not An Error); **Concepts** (from C++20 - constraints on type parameters); Templated Lambdas; **CRTP** (Curiously Recurring Template Pattern); Type traits (`std::enable_if`, `std::is_same`, etc.); Variadic Templates.                                                                                                                   |
+| 5   | Modern C++ Features             | Move Semantics, `std::move`, Rvalue/lvalue references (`&&`, `&`); Lambda Expressions; Range-based For; Type Deduction (`auto`, `decltype`, `decltype(auto)`); Uniform Initialization (`{}`); Initializer Lists; Smart Pointers; `std::optional`, `std::variant`, Structured Bindings, `std::string_view`, Ranges (C++20), Span, Filesystem.                                                                                                                    |
+| 6   | STL & Standard Library Usage    | Containers (`vector`, `deque`, `list`, `map`, `set`, `unordered_map`, etc.); Iterators; Algorithms (`std::sort`, `std::find`, etc.); Allocators; Ranges and Views; Function objects; `std::function`; `std::bind`; `std::chrono` for timing; Allocators; Exception classes; Comparators and Hashing.                                                                                                                                                            |
+| 7   | Idioms, Laws & Patterns         | **Rule of 3/5/0** (copy/move management); **PImpl** (Pointer to Implementation, for ABI stability); **Copy-and-swap**; **Non-Virtual Interface** (NVI); Named Constructors; Singleton/Observer/Factory (classic patterns); Iterator, Proxy, Adapter, Visitor (patterns); Enable If Idiom; Scope Guard; Resource Manager.                                                                                                                                        |
+| 8   | Robustness & Exception Safety   | Safe Exception Handling; noexcept; Exception-neutral code; Basic and Strong Exception Guarantees; Try/catch best practices; RAII for resource recovery; Error codes vs exceptions; Custom exception classes; Propagation, translation, and logging of exceptions.                                                                                                                                                                                               |
+| 9   | Concurrency & Multithreading    | **Data races and race conditions**; Synchronization primitives (mutex, lock_guard, unique_lock, condition_variable); **std::thread**, **std::async**, **future**, **promise**; Atomics; memory order/type; Thread pools; Lock-free programming; Deadlock avoidance; Double-checked locking.                                                                                                                                                                     |
+| 10  | Performance & Optimization      | Inlining; Move/copy elision (RVO, NRVO); Branch prediction; False sharing & cache effects; Memory alignment; Allocator tuning; Microbenchmarking; Value categories (lvalue, xvalue, glvalue, prvalue); Expression templates for perf; Profiling and bottleneck analysis.                                                                                                                                                                                        |
+| 11  | Advanced Practices              | Metaprogramming (static_assert, constexpr, template recursion); Type erasure (`std::function`, concepts, vtables); Custom allocators and memory pools; Expression templates; Policy-based design; Mixins; Intrusive containers; Tag dispatch; CRTP-powered customization.                                                                                                                                                                                       |
+| 12  | Tooling & Process               | Build systems (`cmake`, `make`); Debugging (gdb, lldb); Static Analysis (clang-tidy, cppcheck); Memory/error sanitizers (ASan, UBSan, TSAN); Profilers (valgrind, perf, Instruments); Documentation (Doxygen, Sphinx); Code Review; Continuous Integration; Test Frameworks (Google Test, Catch2).                                                                                                                                                              |
+| 13  | Axioms, Laws, Design Principles | **Zero Overhead Principle**; "Don’t pay for what you don’t use" (Stroustrup); Single Responsibility Principle (SRP); Open/Closed Principle; Liskov Substitution Principle (LSP); Law of Demeter; DRY (Don’t Repeat Yourself); KISS; YAGNI; SOLID (SRP, OCP, LSP, ISP, DIP); API/ABI stability.                                                                                                                                                                  |
+| 14  | Acronyms                        | **RAII** (Resource Acquisition Is Initialization); **SFINAE**; **CRTP**; **SOLID**; **POD** (Plain Old Data); **API/ABI**; **OOP/OOD** ("Object-Oriented Programming" / "Object-Oriented Design"); **NVI** (Non-Virtual Interface); **RVO/NRVO** (Return/Named Return Value Optimization).                                                                                                                                                                      |
+| 15  | Legacy, Interop & Preprocessor  | Header guards, `#pragma once`; Macros (use, dangers, conditional compilation); Preprocessing (`#define`, `#ifdef`); C interop: `extern "C"`, handling name mangling; Include ordering and dependencies; Linking with other languages/libraries.                                                                                                                                                                                                                 |
