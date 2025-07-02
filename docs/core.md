@@ -1,16 +1,20 @@
-# Table of contents<a name="table-of-contents"></a>
+# cpp-shallow-dip<a name="cpp-shallow-dip"></a>
+
+## Table of contents<a name="table-of-contents"></a>
 
 <!-- mdformat-toc start --slug=github --maxlevel=6 --minlevel=1 -->
 
-- [Table of contents](#table-of-contents)
-- [Format](#format)
-- [Language concepts](#language-concepts)
-  - [Resource acquisition is initialization](#resource-acquisition-is-initialization)
-- [TODO](#todo)
+- [cpp-shallow-dip](#cpp-shallow-dip)
+  - [Table of contents](#table-of-contents)
+  - [Format](#format)
+  - [Language concepts](#language-concepts)
+    - [Resource acquisition is initialization](#resource-acquisition-is-initialization)
+    - [Class & object invariants](#class--object-invariants)
+  - [TODO](#todo)
 
 <!-- mdformat-toc end -->
 
-# Format<a name="format"></a>
+## Format<a name="format"></a>
 
 This document is a collection of _keywords_, _concepts_, _axioms_, _acronyms_, _design patterns_,
 and _idioms_ commonly encountered in C++. Using mainly
@@ -19,16 +23,18 @@ and _idioms_ commonly encountered in C++. Using mainly
 sections and topics are ordered from most important to least important but no strict ordering is
 applied.
 
-# Language concepts<a name="language-concepts"></a>
+## Language concepts<a name="language-concepts"></a>
 
-## Resource acquisition is initialization<a name="resource-acquisition-is-initialization"></a>
+### Resource acquisition is initialization<a name="resource-acquisition-is-initialization"></a>
 
 RAII is the idiom of having constructors acquire resources and destructors release them. Meaning
 that resources (allocated heap memory, thread of execution, open socket, open file, locked mutex,
 disk space, database connection - anything that exists in limited supply) are bound to the lifetime
-of an object. Ensuring that resource availability is a [class invariant][class-invariant]
+of an object. Ensuring that resource availability is a [class invariant][class--object-invariants]
 
-# TODO<a name="todo"></a>
+### Class & object invariants<a name="class--object-invariants"></a>
+
+## TODO<a name="todo"></a>
 
 | #   | Category                        | Key Items & Explanations                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | --- | ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
