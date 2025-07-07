@@ -7,14 +7,17 @@ words:
 - consteval
 - constexpr
 - constinit
+- coro
 - cppcheck
 - cppreference
 - CRTP
 - decltype
+- defop
 - deque
 - EDITMSG
 - frontmatter
 - glvalue
+- hier
 - ifdef
 - jthread
 - Liskov

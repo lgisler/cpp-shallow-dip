@@ -21,11 +21,9 @@ https://github.com/lgisler/cpp-shallow-dip
 ## Format<a name="format"></a>
 
 This document is a collection of _keywords_, _concepts_, _axioms_, _acronyms_, _design patterns_,
-and _idioms_ commonly encountered in C++. Using mainly
-[cppreference](https://en.cppreference.com/w/) and
-[CppCoreGuidelines](https://github.com/isocpp/CppCoreGuidelines/) as references. In general the
-sections and topics are ordered from most important to least important but no strict ordering is
-applied.
+and _idioms_ commonly encountered in C++. Using mainly [cppreference] and [CppCoreGuidelines] as
+references. In general the sections and topics are ordered from most important to least important
+but no strict ordering is applied.
 
 The target audience for this document is mid-level C++ developers looking at learning,
 self-improvement, and progressing towards becoming a senior C++ developer.
@@ -44,15 +42,15 @@ acquisition.
 Key practices for RAII:
 
 - Encapsulate each resource into a class:
-  - The constructor acquires the resource and ensures all class invariants, throwing an exceptions
-    if it cannot do so.
+  - The constructor acquires the resource and ensures all class invariants, throwing exceptions if
+    it cannot do so.
   - The destructor releases the resource and must never throw exceptions.
 - Ensure that instances of your RAII class:
   - Are created as local variables (automatic storage) or temporaries, or
   - Have a lifetime that does not exceed that of a local or temporary object.
 
-The C++ standard library provides many RAII classes that manage resources automatically. Common
-examples include:
+The [C++ standard library][standard_library] provides many RAII classes that manage resources
+automatically. Common examples include:
 
 - Memory management:
   - [`std::string`][std_string], [`std::vector`][std_vector], [`std::unique_ptr`][std_unique_ptr],
@@ -65,9 +63,15 @@ examples include:
 - Thread management:
   - [`std::thread`][std_thread], [`std::jthread`][std_jthread] (since C++20)
 
-CppCoreGuidelines rules regarding RAII:
+[CppCoreGuidelines] rules regarding RAII:
 
--
+- [P.8]: Don't leak any resources
+- [C.31]: All resources acquired by a class must be released by the class’s destructor
+- [R.1]: Manage resources automatically using resource handles and RAII (Resource Acquisition Is
+  Initialization)
+- [CP.20]: Use RAII, never plain `lock()`/`unlock()`\]
+- [E.6]: Use RAII to prevent leaks\](
+- [E.25]: If you can’t throw exceptions, simulate RAII for resource management\](
 
 ### Stack vs heap memory<a name="stack-vs-heap-memory"></a>
 
@@ -95,6 +99,15 @@ CppCoreGuidelines rules regarding RAII:
 | 14  | Acronyms                        | **RAII** (Resource Acquisition Is Initialization); **SFINAE**; **CRTP**; **SOLID**; **POD** (Plain Old Data); **API/ABI**; **OOP/OOD** ("Object-Oriented Programming" / "Object-Oriented Design"); **NVI** (Non-Virtual Interface); **RVO/NRVO** (Return/Named Return Value Optimization).                                                                                                                                                                      |
 | 15  | Legacy, Interop & Preprocessor  | Header guards, `#pragma once`; Macros (use, dangers, conditional compilation); Preprocessing (`#define`, `#ifdef`); C interop: `extern "C"`, handling name mangling; Include ordering and dependencies; Linking with other languages/libraries.                                                                                                                                                                                                                 |
 
+[c.31]: https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rc-dtor-release
+[cp.20]: https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rconc-raii
+[cppcoreguidelines]: https://github.com/isocpp/CppCoreGuidelines
+[cppreference]: https://en.cppreference.com/index.html
+[e.25]: https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Re-no-throw-raii
+[e.6]: https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Re-raii
+[p.8]: https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rp-leak
+[r.1]: https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rr-raii
+[standard_library]: https://en.cppreference.com/w/cpp/standard_library.html
 [std_fstream]: https://en.cppreference.com/w/cpp/io/basic_fstream.html
 [std_jthread]: https://en.cppreference.com/w/cpp/thread/jthread.html
 [std_lock_guard]: https://en.cppreference.com/w/cpp/thread/lock_guard.html
