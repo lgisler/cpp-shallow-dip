@@ -34,21 +34,40 @@ self-improvement, and progressing towards becoming a senior C++ developer.
 
 ### Resource acquisition is initialization<a name="resource-acquisition-is-initialization"></a>
 
-RAII is the idiom of having constructors acquire resources and destructors release them. Meaning
-that resources ([allocated heap memory](#stack-vs-heap-memory), thread of execution, open socket,
-open file, locked mutex, disk space, database connection - anything that exists in limited supply)
-are bound to the lifetime of an object. Ensuring that resource availability is a
-[class invariant](#class--object-invariants)
+RAII is an idiom where constructors acquire resources and destructors release them. This means
+resources - such as [heap memory](#stack-vs-heap-memory), threads, open sockets, files, locked
+mutexes, disk space, database connections - are tied to the lifetime of an object. By making
+resource availability a [class invariant](#class--object-invariants), RAII guarantees that all
+resources are released when their their controlling objects are destroyed, in reverse order of
+acquisition.
 
-RAII can be summarized as follows:
+Key practices for RAII:
 
-- encapsulate each resource into a class, where
-  - the constructor acquires the resource and establishes all class invariants or throws an
-    exceptions if that cannot be done,
-  - the destructor releases the resource and never throws exceptions;
-- always use the resource via an instance of a RAII-class that either
-  - has automatic storage duration or temporary lifetime itself, or
-  - has lifetime that is bounded by the lifetime of an automatic or temporary object.
+- Encapsulate each resource into a class:
+  - The constructor acquires the resource and ensures all class invariants, throwing an exceptions
+    if it cannot do so.
+  - The destructor releases the resource and must never throw exceptions.
+- Ensure that instances of your RAII class:
+  - Are created as local variables (automatic storage) or temporaries, or
+  - Have a lifetime that does not exceed that of a local or temporary object.
+
+The C++ standard library provides many RAII classes that manage resources automatically. Common
+examples include:
+
+- Memory management:
+  - [`std::string`][std_string], [`std::vector`][std_vector], [`std::unique_ptr`][std_unique_ptr],
+    [`std::shared_ptr`][std_shared_ptr] (manage dynamically-allocated memory)
+- File and stream I/O:
+  - [`std::fstream`][std_fstream], [`std::stringstream`][std_stringstream]
+- Mutex management:
+  - [`std::lock_guard`][std_lock_guard], [`std::unique_lock`][std_unique_lock],
+    [`std::scoped_lock`][std_scoped_lock], [`std::shared_lock`][std_shared_lock]
+- Thread management:
+  - [`std::thread`][std_thread], [`std::jthread`][std_jthread] (since C++20)
+
+CppCoreGuidelines rules regarding RAII:
+
+-
 
 ### Stack vs heap memory<a name="stack-vs-heap-memory"></a>
 
@@ -75,3 +94,16 @@ RAII can be summarized as follows:
 | 13  | Axioms, Laws, Design Principles | **Zero Overhead Principle**; "Don’t pay for what you don’t use" (Stroustrup); Single Responsibility Principle (SRP); Open/Closed Principle; Liskov Substitution Principle (LSP); Law of Demeter; DRY (Don’t Repeat Yourself); KISS; YAGNI; SOLID (SRP, OCP, LSP, ISP, DIP); API/ABI stability.                                                                                                                                                                  |
 | 14  | Acronyms                        | **RAII** (Resource Acquisition Is Initialization); **SFINAE**; **CRTP**; **SOLID**; **POD** (Plain Old Data); **API/ABI**; **OOP/OOD** ("Object-Oriented Programming" / "Object-Oriented Design"); **NVI** (Non-Virtual Interface); **RVO/NRVO** (Return/Named Return Value Optimization).                                                                                                                                                                      |
 | 15  | Legacy, Interop & Preprocessor  | Header guards, `#pragma once`; Macros (use, dangers, conditional compilation); Preprocessing (`#define`, `#ifdef`); C interop: `extern "C"`, handling name mangling; Include ordering and dependencies; Linking with other languages/libraries.                                                                                                                                                                                                                 |
+
+[std_fstream]: https://en.cppreference.com/w/cpp/io/basic_fstream.html
+[std_jthread]: https://en.cppreference.com/w/cpp/thread/jthread.html
+[std_lock_guard]: https://en.cppreference.com/w/cpp/thread/lock_guard.html
+[std_scoped_lock]: https://en.cppreference.com/w/cpp/thread/scoped_lock.html
+[std_shared_lock]: https://en.cppreference.com/w/cpp/thread/shared_lock.html
+[std_shared_ptr]: https://en.cppreference.com/w/cpp/memory/shared_ptr.html
+[std_string]: https://en.cppreference.com/w/cpp/string/basic_string.html
+[std_stringstream]: https://en.cppreference.com/w/cpp/io/basic_stringstream.html
+[std_thread]: https://en.cppreference.com/w/cpp/thread/thread.html
+[std_unique_lock]: https://en.cppreference.com/w/cpp/thread/unique_lock.html
+[std_unique_ptr]: https://en.cppreference.com/w/cpp/memory/unique_ptr.html
+[std_vector]: https://en.cppreference.com/w/cpp/container/vector.html

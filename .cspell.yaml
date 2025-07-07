@@ -16,6 +16,7 @@ words:
 - frontmatter
 - glvalue
 - ifdef
+- jthread
 - Liskov
 - lldb
 - lvalue
@@ -34,6 +35,7 @@ words:
 - RAII
 - Rvalue
 - SFINAE
+- stringstream
 - Stroustrup
 - TSAN
 - valgrind
