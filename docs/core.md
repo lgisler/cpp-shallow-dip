@@ -69,9 +69,9 @@ automatically. Common examples include:
 - [C.31]: All resources acquired by a class must be released by the class’s destructor
 - [R.1]: Manage resources automatically using resource handles and RAII (Resource Acquisition Is
   Initialization)
-- [CP.20]: Use RAII, never plain `lock()`/`unlock()`\]
-- [E.6]: Use RAII to prevent leaks\](
-- [E.25]: If you can’t throw exceptions, simulate RAII for resource management\](
+- [CP.20]: Use RAII, never plain `lock()`/`unlock()`
+- [E.6]: Use RAII to prevent leaks
+- [E.25]: If you can’t throw exceptions, simulate RAII for resource management
 
 ### Stack vs heap memory<a name="stack-vs-heap-memory"></a>
 
