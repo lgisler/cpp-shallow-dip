@@ -63,7 +63,7 @@ automatically. Common examples include:
 - Thread management:
   - [`std::thread`][std_thread], [`std::jthread`][std_jthread] (since C++20)
 
-[CppCoreGuidelines] rules regarding RAII:
+[CppCoreGuidelines] rules related to RAII:
 
 - [P.8]: Don't leak any resources
 - [C.31]: All resources acquired by a class must be released by the class’s destructor
@@ -72,6 +72,8 @@ automatically. Common examples include:
 - [CP.20]: Use RAII, never plain `lock()`/`unlock()`
 - [E.6]: Use RAII to prevent leaks
 - [E.25]: If you can’t throw exceptions, simulate RAII for resource management
+- [SL.C.1]: Don't use setjmp/longjmp
+- [NR.6]: Don't place all cleanup actions at the end of a function and `goto exit`
 
 ### Stack vs heap memory<a name="stack-vs-heap-memory"></a>
 
@@ -101,12 +103,14 @@ automatically. Common examples include:
 
 [c.31]: https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rc-dtor-release
 [cp.20]: https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rconc-raii
-[cppcoreguidelines]: https://github.com/isocpp/CppCoreGuidelines
+[cppcoreguidelines]: https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines
 [cppreference]: https://en.cppreference.com/index.html
 [e.25]: https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Re-no-throw-raii
 [e.6]: https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Re-raii
+[nr.6]: https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rnr-goto-exit
 [p.8]: https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rp-leak
 [r.1]: https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rr-raii
+[sl.c.1]: https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rclib-jmp
 [standard_library]: https://en.cppreference.com/w/cpp/standard_library.html
 [std_fstream]: https://en.cppreference.com/w/cpp/io/basic_fstream.html
 [std_jthread]: https://en.cppreference.com/w/cpp/thread/jthread.html
