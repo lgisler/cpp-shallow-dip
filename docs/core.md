@@ -11,7 +11,17 @@ https://github.com/lgisler/cpp-shallow-dip
   - [Format](#format)
   - [Language concepts](#language-concepts)
     - [Resource acquisition is initialization](#resource-acquisition-is-initialization)
+    - [Object lifetime and ownership](#object-lifetime-and-ownership)
+    - [Constructors and destructors](#constructors-and-destructors)
+    - [Copy and move semantics](#copy-and-move-semantics)
+    - [Slicing](#slicing)
     - [Stack vs heap memory](#stack-vs-heap-memory)
+    - [Smart pointers](#smart-pointers)
+    - [Manual memory management](#manual-memory-management)
+    - [Object oriented programming](#object-oriented-programming)
+    - [Functional programming](#functional-programming)
+    - [Abstraction](#abstraction)
+    - [Abstract classes](#abstract-classes)
   - [Core software engineering](#core-software-engineering)
     - [Class & object invariants](#class--object-invariants)
   - [TODO](#todo)
@@ -75,7 +85,27 @@ automatically. Common examples include:
 - [SL.C.1]: Don't use setjmp/longjmp
 - [NR.6]: Don't place all cleanup actions at the end of a function and `goto exit`
 
+### Object lifetime and ownership<a name="object-lifetime-and-ownership"></a>
+
+### Constructors and destructors<a name="constructors-and-destructors"></a>
+
+### Copy and move semantics<a name="copy-and-move-semantics"></a>
+
+### Slicing<a name="slicing"></a>
+
 ### Stack vs heap memory<a name="stack-vs-heap-memory"></a>
+
+### Smart pointers<a name="smart-pointers"></a>
+
+### Manual memory management<a name="manual-memory-management"></a>
+
+### Object oriented programming<a name="object-oriented-programming"></a>
+
+### Functional programming<a name="functional-programming"></a>
+
+### Abstraction<a name="abstraction"></a>
+
+### Abstract classes<a name="abstract-classes"></a>
 
 ## Core software engineering<a name="core-software-engineering"></a>
 
